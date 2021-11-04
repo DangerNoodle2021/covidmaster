@@ -1,0 +1,38 @@
+--COUNTRY LEVEL (landing page)
+https://api.covidactnow.org/v2/country/US.json?apiKey= + apiKey
+    -Helpful Information:
+        population:  provides US population
+        metrics.vaccinationsInitiatedRatio: provides the percentage of US population that has received 1+ dose
+        metrics.vaccinationsCompletedRatio: provides percentage of US populate that has received 2 doses.
+        actuals.cases: provides that amount of cases that have been recorded in the US
+        actuals.positiveTests: records the numbers of positivetests in the US
+        actuals.newCases: records the number of new cases on current day
+            **IDEA** local storage of the past 30 days of the cases records to determine if trending downward or upward
+        actuals.Deaths: records the number of deaths on current day 
+
+--COUNTRY LEVEL TIMESERIES
+https://api.covidactnow.org/v2/country/US.timeseries.json?apiKey=
+    -can use this to create a trend.
+
+(LOCATION SEARCH)
+--STATE LEVEL
+https://api.covidactnow.org/v2/state/CO.json?apiKey=
+    metrics.caseDensity: provides the daily new cases in the state
+    metrics.infectionRate: provides the infection infectionRate
+    metrics.testPositivityRatio: positive test rate
+    riskLevels.overall: the overall risk level of state
+    actuals.newCase: new cases in the state
+
+
+--state level timeseries
+https://api.covidactnow.org/v2/state/CO.timeseries.json?apiKey= 
+    -use for the trend
+
+
+-- on event click > produce the county data. 
+
+https://api.covidactnow.org/v2/county/{fips}.json?apiKey={apiKey}
+--fips is the 5 letter code.
+    --fist two numbers are state fips code 
+    --2nd 3 are county 
+    
