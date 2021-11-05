@@ -1,8 +1,16 @@
 header {
     text-align: center;
-    background-color: lightcoral;
+    background-color: rgb(235, 233, 233)
 }
+
+/* search navbar box */
 .container-fluid {
     background-color: lightgray;
     margin: 10px;
+}
+
+/* button for search navbar box */
+.btn {
+    background-color: rgb(117, 81, 173);
+    color: white;
 }
