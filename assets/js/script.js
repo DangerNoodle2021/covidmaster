@@ -23,13 +23,12 @@ var urlLink = 'https://api.covidactnow.org/v2/states.json?apiKey='
 function covidData (city){
     var queryURL = urlLink + covidAPIKey
     fetch (queryURL)
-    .then(function(response)){
-        return response.JSON()
+    .then(function(response){
+        return response.json()
         .then(function(response){
             console.log(response);
         })
-    }
-}
+    })
     
     //US on landing page
     //searched state
@@ -41,4 +40,4 @@ function covidData (city){
         //new cards should include small image, datetime, location, title and a favorite button
 
 //favorite button 
-    //a star or heart that fills when clicked and then adds to local storage
+    // a star or heart that fills when clicked and then adds to local storage
