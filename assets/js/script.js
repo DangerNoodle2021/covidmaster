@@ -17,16 +17,23 @@
 //insert covid data at the different levels in dates specified. 
     //if date is not specified, then populate the soonest upcoming
 var covidAPIKey = '7e0f83a022e24a68ae76e69913b1283c'
-var urlLink = 'https://api.covidactnow.org/v2/states.json?apiKey='
-// https://api.covidactnow.org/v2/states.json?apiKey={apiKey}
+var urlLink = 'https://api.covidactnow.org/v2/state/{state}.json?apiKey='
+var cityInput = ''
+// https://api.covidactnow.org/v2/state/{state}.json?apiKey=YOUR_KEY_HERE
+// https://api.covidactnow.org/v2/county/{fips}.json?apiKey=YOUR_KEY_HERE
+// https://api.covidactnow.org/v2/cbsa/{cbsa_code}.json?apiKey=YOUR_KEY_HERE
 
-function covidData (city){
-    var queryURL = urlLink + covidAPIKey
+function covidData (state){
+    var queryURL = urlLink + cityInput + covidAPIKey
     fetch (queryURL)
-    .then(function(response){
-        return response.json()
+        .then(function(response){
+            return response.json()
         .then(function(response){
             console.log(response);
+            for (var i = 0; i<data.length; i++){
+                var state = document.createElement('p');
+                state.textContent = data[i].state;
+            }
         })
     })
     
