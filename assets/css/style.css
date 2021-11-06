@@ -1,16 +1,146 @@
+body {
+    margin: 0 auto;
+}
+
+/* display flex and justify content to space between so heart icon is on the right side */
 header {
-    text-align: center;
-    background-color: rgb(235, 233, 233)
+    text-align: left;
+    background-color: rgb(235, 233, 233);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
-/* search navbar box */
-.container-fluid {
+/* main title header all the way to the top */
+h1 {
+    margin: 0;
+}
+
+/* so the form fields are not right up on the header labels */
+/* h2{
+    margin-right: 20px;
+    margin-left: 20px;
+
+} */
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+
+/* Make the form container flex  */
+form {
+    display: flex;
     background-color: lightgray;
-    margin: 10px;
 }
 
-/* button for search navbar box */
-.btn {
+/* designate the input form height */
+input {
+    line-height: 3;
+
+}
+
+/* main container of entire search section with input fields 
+parent of top-row and bottom-row */
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    /* justify-content: flex-end; */
+    /* align-content: space-between; */
+    
+}
+
+/* contains the city, state and zipcode input fields
+direct children: city-container, state-container, zipcode container */
+/* parent: container-fluid */
+.top-row{
+    padding: 10px 10px;
+    display: flex;
+    margin-left: 70px;
+    /* justify-content: flex-end; */
+
+}
+
+/* Contains start and end date input fields.
+Children: .endDate-container and .startDate-container
+Parent: .container-fluid */
+.bottom-row {
+    padding: 10px 10px;
+    display: flex;
+    height: 50%;
+    margin-left: 70px;
+    /* justify-content: flex-end; */
+}
+
+/* setting general attributes shared by all the input containers
+all contain a header label and an input form field */
+.startDate-container, .endDate-container, .city-container, .state-container, .zipcode-container {
+    display:flex;
+    /* justify-content: flex-end; */
+    margin-left: 10;
+    
+}
+
+/* setting each container's width within their row */
+.startDate-container, .endDate-container {
+    width: 50%;
+}
+.city-container {
+    width:45.5%;
+}
+.zipcode-container {
+    width: 30%;
+    
+}
+
+.state-container,.zipcode-container {
+    margin-left: 20px;
+}
+
+/* search button's style 
+Parent: <form>
+children: none
+*/
+#search {
     background-color: rgb(117, 81, 173);
     color: white;
+    font-size: 25px;
+    margin: 20px;
+    width: 20%;
+    border-radius: 10px;
+    height: 80px;
+    align-self: center;
+    border: 2px rgb(118,118,188) outset;
+    /* justify-self: flex-start; */
+
+}
+
+/* setting width of the input field within each ones container.
+parents are the same name plus -container (.city-container, .state-container, .zipcode-container) */
+
+#city{
+    width: 90%;
+    margin-left: 20px;
+}
+#state {
+    margin-left: 20px;
+}
+#zip {
+    width:60%;
+    margin-left: 20px;
+}
+/* setting width of the input field within each ones container.
+parents are the same name plus -container (.endDate-container,.startDate-container) */
+
+#end-date, #start-date {
+    width: 70%;
+    margin-left: 20px;
+}
+
+/* favorite heart icon that appears in the top right of the screen  */
+#view-faves-icon {
+    height: 100%;
+    font-size: xx-large;
 }
