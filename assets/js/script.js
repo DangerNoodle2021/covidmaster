@@ -25,7 +25,7 @@ function covidData (){
         .then(function(response){
             return response.json()})
         .then(function(covidDat){
-            console.log(covidDat);  /*console log data string*/
+            console.log(covidDat)  /*console log data string*/
         for (var i = 0; i < data.length; i++){
                 // var state = document.createElement('p');
                 state.textContent = data[i].state;
