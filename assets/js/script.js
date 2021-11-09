@@ -27,12 +27,15 @@ function covidData (){
         .then(function(covidDat){
             console.log(covidDat);  /*console log data string*/
         for (var i = 0; i < data.length; i++){
-                var state = document.createElement('p');
+                // var state = document.createElement('p');
                 state.textContent = data[i].state;
         }
     })
 }
 covidData();
+
+// function to loop images depending on which state is searched, if no state searched pull up whole map
+
 
     //US on landing page
     //searched state
