@@ -9,6 +9,7 @@ header {
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /* main title header all the way to the top */
@@ -22,7 +23,11 @@ h1 {
     margin-left: 20px;
 
 } */
-
+h3 {
+    display: flex;
+    align-self: center;
+    font-size: xx-large;
+}
 button {
     border: none;
     background-color: transparent;
@@ -41,6 +46,32 @@ input {
 
 }
 
+main {
+    display: flex;
+}
+
+section, aside {
+    margin: 40px;
+}
+
+section {
+    width:75%;
+    border: 2px black solid;
+}
+
+aside {
+    width: 25%;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    border: 2px blue solid;
+    margin: 10px;
+    font-size: x-large
+}
 /* main container of entire search section with input fields 
 parent of top-row and bottom-row */
 .container-fluid {
@@ -99,6 +130,12 @@ all contain a header label and an input form field */
     margin-left: 20px;
 }
 
+
+/* covid data title (state, county and the country) */
+.covid-title {
+    justify-self: center;
+}
+
 /* search button's style 
 Parent: <form>
 children: none
@@ -144,3 +181,13 @@ parents are the same name plus -container (.endDate-container,.startDate-contain
     height: 100%;
     font-size: xx-large;
 }
+
+
+#state-photo, #trending-graph {
+    height: 200px;
+    margin: 0px 10px;
+}
+
+/* #trending-graph {
+
+} */
