@@ -147,8 +147,38 @@ function getcovidData(state){
 //     })
 // }
 covidData();
+
+
+
 // gets covid data upon clicking the search button
-// fetchBtn.addEventListener('click', covidData);
+
+// https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
+
+//need to add in variables for each covid metric and 
+var riskLevel = document.querySelector('#risk-level');
+console.log(riskLevel);
+var searchButton = document.querySelector('#search');
+var state = document.querySelector('#state')
+console.log(searchButton)
+function getAPI (){
+    var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
+    var stateShorthand= state.value
+    var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
+
+    fetch(requestURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(requestURL)
+            riskLevel.innerHTML = data.riskLevels.overall
+
+            console.log(stateShorthand) 
+        })
+};
+
+searchButton.addEventListener('click', getAPI);
+
 
 // function to loop images depending on which state is searched, if no state searched pull up whole map
 
@@ -164,3 +194,5 @@ covidData();
 
 //favorite button 
     // a star or heart that fills when clicked and then adds to local storage
+
+
