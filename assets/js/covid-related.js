@@ -50,7 +50,6 @@ var state = document.querySelector('#state')
 console.log(formEl)
 var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
 
-
 function initialData () {
     // event.preventDefault();
     var initialURL = 'https://api.covidactnow.org/v2/country/US.json?apiKey=' + apiKey
@@ -93,7 +92,7 @@ function searchCovid (event){
             percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
             //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
             // console.log(stateShorthand) 
-            console.log(stateShorthand) 
+            console.log(stateShorthand)
         })
 };
 
@@ -103,6 +102,24 @@ formEl.addEventListener('submit', searchCovid);
 // https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
 
 // function to loop images depending on which state is searched, if no state searched pull up whole map
+// function add_img(){
+//     var imgSearch = stateShorthand + '.jpg'
+//     var insertIcon = document.querySelector('#state-photo');
+//     img.src = '.\assets\images\covidimages';
+//     imgSearch.append(insertIcon)
+// }
+var insertIcon = document.querySelector('#state-photo')
+var fileLocation = "assets\images\covidimages";
+var ext = '.jpg';
+var i = 'AK';
+
+$(function imageloop(){
+    $('<img />').attr('src', fileLocation + i + ext).appendTo(insertIcon);
+    if ( i === AK){
+        
+    }
+})
+
 
 
 
