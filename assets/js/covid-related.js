@@ -115,11 +115,13 @@ var i = 'AK';
 
 $(function imageloop(){
     $('<img />').attr('src', fileLocation + i + ext).appendTo(insertIcon);
-    if ( i === AK){
-        
-    }
-})
-
+    if ( i === IL){
+        console.log('yay');
+    }else{
+        i++;
+        imageloop();
+    };
+});
 
 
 
