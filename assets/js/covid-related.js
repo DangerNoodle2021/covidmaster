@@ -75,16 +75,26 @@
 
 // https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
 
-//need to add in variables for each covid metric and 
+//add in variables for each covid metric
+var title = document.querySelector('.covid-title')
+console.log(title);
 var riskLevel = document.querySelector('#risk-level');
 console.log(riskLevel);
+var popVax = document.querySelector('#percent-vaxxed')
+console.log(popVax);
+var newCases = document.querySelector('#new-cases')
+console.log(newCases);
+var posTests = document.querySelector('#test-rate')
+console.log(posTests);
 var formEl = document.querySelector('form');
 var state = document.querySelector('#state')
 console.log(formEl)
+
+// function to bring covid data from api
 function getAPI (event){
     event.preventDefault();
     var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
-    console.log('hello!!!!!!!!!!!!!!!!!')
+    console.log('hello? is this working?');
     var stateShorthand= state.value
     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
 
@@ -99,7 +109,7 @@ function getAPI (event){
             console.log(stateShorthand) 
         })
 };
-
+// excecute function when clicking the submit button
 formEl.addEventListener('submit', getAPI);
 
 
