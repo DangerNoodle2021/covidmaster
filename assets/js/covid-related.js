@@ -66,7 +66,7 @@ function initialData () {
             newCasesEl.innerHTML = data.actuals.newCases
             // posTestRate.innerHTML = data.actuals.positiveTests
             percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
-            // console.log(stateShorthand) 
+            // console.log(stateShorthand)
         })
 }
 
@@ -103,6 +103,7 @@ formEl.addEventListener('submit', searchCovid);
 // https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
 
 // function to loop images depending on which state is searched, if no state searched pull up whole map
+
 
 
     //US on landing page
