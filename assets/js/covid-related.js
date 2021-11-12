@@ -1,12 +1,4 @@
-
-
-
 // //insert the images, locations, datetimes and titles into the cards for events
-
-
-
-
-
 // // covid data functions, variables, and appended data
 // //insert covid data at the different levels in dates specified. 
 
@@ -44,31 +36,6 @@
 //         infoUrl.append(currData);
 //     })
 // }
-
-// function getcovidData(state){
-//     if(typeof state === 'object'){
-//         state = $(this).attr('data-name');
-//     }
-//     covidData(state);
-// }
-
-// // function to bring back covid data for each state
-// // function covidData (){
-// //     var queryURL = urlLink + covidAPIKey
-// //     fetch (queryURL)
-// //         .then(function(response){
-// //             return response.json()})
-// //         .then(function(covidDat){
-// //             console.log(covidDat)  /*console log data string*/
-// //         for (var i = 0; i < data.length; i++){
-// //                 // var state = response.covidDat[0].state;
-// //                 // state.textContent = 
-                
-// //         }
-// //     })
-// // }
-// covidData();
-
 
 //need to add in variables for each covid metric and 
 var riskLevelEl = document.querySelector('#risk-level');
@@ -135,44 +102,6 @@ formEl.addEventListener('submit', searchCovid);
 
 // https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
 
-//add in variables for each covid metric
-// var title = document.querySelector('.covid-title')
-// console.log(title);
-// var riskLevel = document.querySelector('#risk-level');
-// console.log(riskLevel);
-// var popVax = document.querySelector('#percent-vaxxed')
-// console.log(popVax);
-// var newCases = document.querySelector('#new-cases')
-// console.log(newCases);
-// var posTests = document.querySelector('#test-rate')
-// console.log(posTests);
-// var formEl = document.querySelector('form');
-// var state = document.querySelector('#state')
-// console.log(formEl)
-
-// // function to bring covid data from api
-// function getAPI (event){
-//     event.preventDefault();
-//     var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
-//     console.log('hello? is this working?');
-//     var stateShorthand= state.value
-//     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
-
-//     fetch(requestURL)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(requestURL)
-//             riskLevel.innerHTML = data.riskLevels.overall
-
-//             console.log(stateShorthand) 
-//         })
-// };
-// // excecute function when clicking the submit button
-// formEl.addEventListener('submit', getAPI);
-
-
 // function to loop images depending on which state is searched, if no state searched pull up whole map
 
 
@@ -187,5 +116,3 @@ formEl.addEventListener('submit', searchCovid);
 
 //favorite button 
     // a star or heart that fills when clicked and then adds to local storage
-
-
