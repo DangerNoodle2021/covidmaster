@@ -76,31 +76,67 @@
 // https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
 
 //need to add in variables for each covid metric and 
-var riskLevel = document.querySelector('#risk-level');
-console.log(riskLevel);
+var riskLevelEl = document.querySelector('#risk-level');
+var currentDateEl = document.querySelector('#current-date')
+var newCasesEl = document.querySelector('#new-cases')
+var posTestRate = document.querySelector('#test-rate')
+var stateTitleEl = document.querySelector('#covid-title')
+var percentVax = document.querySelector('#percent-vaxxed')
+console.log(riskLevelEl);
 var formEl = document.querySelector('form');
 var state = document.querySelector('#state')
 console.log(formEl)
-function getAPI (event){
+var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
+
+
+function initialData () {
+    // event.preventDefault();
+    var initialURL = 'https://api.covidactnow.org/v2/country/US.json?apiKey=' + apiKey
+    console.log(initialURL)
+    fetch(initialURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            // console.log()
+            riskLevelEl.innerHTML = data.riskLevels.overall
+            currentDateEl.innerHTML= data.lastUpdatedDate //CONVERT TO Month, day year
+            newCasesEl.innerHTML = data.actuals.newCases
+            // posTestRate.innerHTML = data.actuals.positiveTests
+            percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
+            // console.log(stateShorthand) 
+        })
+}
+
+initialData();
+
+
+function searchCovid (event){
     event.preventDefault();
-    var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
     console.log('hello!!!!!!!!!!!!!!!!!')
     var stateShorthand= state.value
-    var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
 
+    var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
+    console.log(requestURL)
     fetch(requestURL)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(requestURL)
-            riskLevel.innerHTML = data.riskLevels.overall
-
+            //change title of covid state to the state in the data.url
+            riskLevelEl.innerHTML = data.riskLevels.overall
+            currentDateEl.innerHTML= data.lastUpdatedDate //CONVERT TO Month, day year
+            newCasesEl.innerHTML = data.actuals.newCases
+            // posTestRate.innerHTML = data.actuals.positiveTests
+            percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
+            //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
+            // console.log(stateShorthand) 
             console.log(stateShorthand) 
         })
 };
 
-formEl.addEventListener('submit', getAPI);
+formEl.addEventListener('submit', searchCovid);
 
 
 // function to loop images depending on which state is searched, if no state searched pull up whole map
