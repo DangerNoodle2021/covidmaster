@@ -9,7 +9,7 @@
   Error message display
   
   */
-
+/*
   
   var BASE_URl = 'https://app.ticketmaster.com/discovery/v2/events.json?size=30&city='
   var KEY = 'wYk8muWgRYtJ2K4cZHocmXVoL8gum9hh'; 
@@ -96,4 +96,4 @@ fetchObjects();
 
 
 //insert the images, locations, datetimes and titles into the cards for events
-
+*/
