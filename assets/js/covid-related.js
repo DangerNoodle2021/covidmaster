@@ -43,6 +43,7 @@ function searchCovid (event){
     event.preventDefault();
     console.log('hello!!!!!!!!!!!!!!!!!')
     var stateShorthand= state.value
+    var img = document.getElementById('trending-graph')
 
     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
     var iconstateEL = './assets/images/covidimages/' + stateShorthand + '.jpg'
@@ -61,9 +62,8 @@ function searchCovid (event){
             // posTestRate.innerHTML = data.actuals.positiveTests
             percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
             //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
-            // console.log(stateShorthand) 
-            console.log(stateShorthand)
-            stateIconEl.setAttribute("src", iconstateEl)
+            // stateIconEl.setAttribute("src", iconstateEl)
+            img.setAttribute('src', './assets/images/covidimages/' + stateShorthand + '.jpg');
         })
 };
 
