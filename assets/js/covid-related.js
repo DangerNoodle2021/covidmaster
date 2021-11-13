@@ -43,6 +43,7 @@ function searchCovid (event){
     event.preventDefault();
     console.log('hello!!!!!!!!!!!!!!!!!')
     var stateShorthand= state.value
+    var img = document.getElementById('state-photo')
 
     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
     var iconstateEL = './assets/images/covidimages/' + stateShorthand + '.jpg'
@@ -61,16 +62,15 @@ function searchCovid (event){
             // posTestRate.innerHTML = data.actuals.positiveTests
             percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
             //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
-            // console.log(stateShorthand) 
-            console.log(stateShorthand)
-            stateIconEl.setAttribute("src", iconstateEl)
+            // stateIconEl.setAttribute("src", iconstateEl)
+            img.setAttribute('src', './assets/images/covidimages/' + stateShorthand + '.jpg');
         })
 };
 
 formEl.addEventListener('submit', searchCovid);
 // gets covid data upon clicking the search button
 
-// https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey= 7e0f83a022e24a68ae76e69913b1283c
+// https://api.covidactnow.org/v2/state/IL.timeseries.json?apiKey=7e0f83a022e24a68ae76e69913b1283c
 
 // function to loop images depending on which state is searched, if no state searched pull up whole map
 // function add_img(){
