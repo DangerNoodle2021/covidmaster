@@ -63,7 +63,7 @@ function searchCovid (event){
             //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
             // console.log(stateShorthand) 
             console.log(stateShorthand)
-            stateIconEl.setAttribute("src", iconSourceEl)
+            stateIconEl.setAttribute("src", iconstateEl)
         })
 };
 
