@@ -1,41 +1,4 @@
-// //insert the images, locations, datetimes and titles into the cards for events
-// // covid data functions, variables, and appended data
-// //insert covid data at the different levels in dates specified. 
 
-// // declare variables for covidData function
-// var covidAPIKey = '8530c235e49149a59a1313f66d8492a8'
-// var state = document.getElementById('state')
-// var urlLink = `https://api.covidactnow.org/v2/states/${state}.timeseries.json?apiKey=`
-// var fetchBtn = document.getElementById('search')
-
-// function covidData(state){
-//     var queryURL = urlLink + covidAPIKey;
-//     // AJAX call for covid data
-//     $.ajax({
-//         url: queryURL,
-//         method: 'GET'
-//     }).then(function(response){
-//         var currData = $("<div id = 'currentData'>");
-
-//         var titleSt = response.state;
-//         titleSt.append(currData);
-
-//         var riskLv = response.riskLevels.overall;
-//         riskLv.append(currData);
-
-//         var popVax = response.metrics.vaccinationsCompletedRatio;
-//         popVax.append(currData);
-
-//         var newCases = response.actuals.newCases;
-//         newCases.append(currData);
-
-//         var posTests = response.actuals.positiveTests;
-//         posTests.append(currData);
-
-//         var infoUrl = response.url;
-//         infoUrl.append(currData);
-//     })
-// }
 
 //need to add in variables for each covid metric and 
 var riskLevelEl = document.querySelector('#risk-level');
@@ -70,7 +33,7 @@ function initialData () {
             // posTestRate.innerHTML = data.actuals.positiveTests
             percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
             // console.log(stateShorthand)
-            stateIconEl.setAttribute("href", iconSourceEl)
+            stateIconEl.setAttribute("src", iconSourceEl)
         })
 }
 
@@ -100,7 +63,7 @@ function searchCovid (event){
             //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
             // console.log(stateShorthand) 
             console.log(stateShorthand)
-            stateIconEl.setAttribute('href', iconstateEL)
+            stateIconEl.setAttribute("src", iconSourceEl)
         })
 };
 
