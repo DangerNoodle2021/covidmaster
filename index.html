@@ -57,7 +57,9 @@
       <section>
         <!--all ticketmaster data
           --contains images, titles, locations, and dates/times of events-->
-          <p>events</p>
+          <p id='eventsbox'>EVENTS</p>
+          <p id='min'>Price MIN</p>
+          <p id='max'>Price MAX</p>
       </section>
       <aside>
 
@@ -69,7 +71,7 @@
         <!--Header needs to be replaced per search fo the state or zip code. if state then change to state if zip code cahnge to county-->
         <div id = 'currentData'></div>
           <h3 class='covid-title'>U.S.A</h3>
-          <img id='state-photo'/> <!--would it be possible to insert a picture of the state?-->
+          <img src="./assets/images/covidimages/USA states icons original.jpg" alt="usa map" id='state-photo'> <!--would it be possible to insert a picture of the state?-->
           <p>Risk Level: <span id="risk-level"></span></p>
           <p><span class='covid-title'>U.S.A</span> Population Vaccinated: <span id="percent-vaxxed"></span>%</p>
           <p>New Cases (<span id='current-date'>Current Date</span>): <span id='new-cases'>#</span></p>
@@ -80,7 +82,7 @@
     </main>
 
     <footer>Made by us</footer>
-    <!-- <script src="./assets/js/script.js"></script> -->
+    <script src="./assets/js/script.js"></script>
     <script src="./assets/js/covid-related.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 
