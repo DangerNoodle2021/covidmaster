@@ -43,7 +43,7 @@ function searchCovid (event){
     event.preventDefault();
     console.log('hello!!!!!!!!!!!!!!!!!')
     var stateShorthand= state.value
-    var img = document.getElementById('trending-graph')
+    var img = document.getElementById('state-photo')
 
     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
     var iconstateEL = './assets/images/covidimages/' + stateShorthand + '.jpg'
