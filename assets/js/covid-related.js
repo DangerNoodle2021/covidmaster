@@ -45,6 +45,8 @@ var posTestRate = document.querySelector('#test-rate')
 var stateTitleEl = document.querySelector('#covid-title')
 var percentVax = document.querySelector('#percent-vaxxed')
 console.log(riskLevelEl);
+var stateIconEl = document.querySelector('#state-photo')
+console.log(stateIconEl)
 var formEl = document.querySelector('form');
 var state = document.querySelector('#state')
 console.log(formEl)
@@ -53,6 +55,8 @@ var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
 function initialData () {
     // event.preventDefault();
     var initialURL = 'https://api.covidactnow.org/v2/country/US.json?apiKey=' + apiKey
+    var iconSourceEl = 'assets/images/covidimages/USA.jpg'
+    console.log(iconSourceEl)
     console.log(initialURL)
     fetch(initialURL)
         .then(function (response) {
@@ -66,6 +70,7 @@ function initialData () {
             // posTestRate.innerHTML = data.actuals.positiveTests
             percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
             // console.log(stateShorthand)
+            stateIconEl.setAttribute("href", iconSourceEl)
         })
 }
 
@@ -77,6 +82,8 @@ function searchCovid (event){
     var stateShorthand= state.value
 
     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
+    var iconstateEL = 'assets/images/covidimages/' + stateShorthand + '.jpg'
+    console.log(iconstateEL)
     console.log(requestURL)
     fetch(requestURL)
         .then(function (response) {
@@ -93,6 +100,7 @@ function searchCovid (event){
             //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
             // console.log(stateShorthand) 
             console.log(stateShorthand)
+            stateIconEl.setAttribute('href', iconstateEL)
         })
 };
 
@@ -108,20 +116,20 @@ formEl.addEventListener('submit', searchCovid);
 //     img.src = '.\assets\images\covidimages';
 //     imgSearch.append(insertIcon)
 // }
-var insertIcon = document.querySelector('#state-photo')
-var fileLocation = "assets\images\covidimages";
-var ext = '.jpg';
-var i = 'AK';
+// var insertIcon = document.querySelector('#state-photo')
+// var fileLocation = "assets\images\covidimages";
+// var ext = '.jpg';
+// var i = 'AK';
 
-$(function imageloop(){
-    $('<img />').attr('src', fileLocation + i + ext).appendTo(insertIcon);
-    if ( i === IL){
-        console.log('yay');
-    }else{
-        i++;
-        imageloop();
-    };
-});
+// $(function imageloop(){
+//     $('<img />').attr('src', fileLocation + i + ext).appendTo(insertIcon);
+//     if ( i === IL){
+//         console.log('yay');
+//     }else{
+//         i++;
+//         imageloop();
+//     };
+// });
 
 
 
