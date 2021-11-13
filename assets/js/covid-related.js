@@ -18,7 +18,7 @@ var apiKey = '7e0f83a022e24a68ae76e69913b1283c'
 function initialData () {
     // event.preventDefault();
     var initialURL = 'https://api.covidactnow.org/v2/country/US.json?apiKey=' + apiKey
-    var iconSourceEl = 'assets/images/covidimages/USA.jpg'
+    var iconSourceEl = './assets/images/covidimages/USA.jpg'
     console.log(iconSourceEl)
     console.log(initialURL)
     fetch(initialURL)
@@ -45,7 +45,7 @@ function searchCovid (event){
     var stateShorthand= state.value
 
     var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + apiKey
-    var iconstateEL = 'assets/images/covidimages/' + stateShorthand + '.jpg'
+    var iconstateEL = './assets/images/covidimages/' + stateShorthand + '.jpg'
     console.log(iconstateEL)
     console.log(requestURL)
     fetch(requestURL)
