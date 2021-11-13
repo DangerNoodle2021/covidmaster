@@ -1,132 +1,99 @@
-// //Defining a baseURL and key to as part of the request URL
-const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json?size=30&city=chicago&startDateTime=2021-11-21T00:00:00Z&endDateTime=2021-11-25T00:00:00Z&apikey=';
-const KEY = 'wYk8muWgRYtJ2K4cZHocmXVoL8gum9hh'; 
+//Defining a baseURL and key to as part of the request URL
+  /*
+  Use input fields to build URL 
 
-//   // Grab references to all the DOM elements you'll need to manipulate
+  fetch data from API
 
-  const searchTerm = document.querySelector('.search');
-  const startDate = document.querySelector('.start-date');
-  const endDate = document.querySelector('.end-date');
-  const searchForm = document.querySelector('form');
+  Display data
 
-
-//     // Event listeners to control the functionality
-// searchForm.addEventListener('submit', submitSearch);
-
-//   function fetchResults(e) {
+  Error message display
   
-//     // Assemble the full URL
-//     url = baseURL + '?api-key=' + key + '&page=' + pageNumber + '&q=' + searchTerm.value + '&fq=document_type:("article")';
-//   }
-//     if(startDate.value !== '11-11-2021') {
-//       url += '&begin_date=' + startDate.value;
-//     };
+  */
+
   
-//     if(endDate.value !== '02-02-2022') {
-//       url += '&end_date=' + endDate.value;
-//     };
-    
-//     function submitSearch(e) {
-//       pageNumber = 0;
-//       fetchResults(e);
-//     }
-    
-//     // Use fetch() to make the request to the API
-// fetch(url).then(function(result) {
-//     return result.json();
-//   }).then(function(json) {
-//     displayResults(json);
-//   });
+  var BASE_URl = 'https://app.ticketmaster.com/discovery/v2/events.json?size=30&city='
+  var KEY = 'wYk8muWgRYtJ2K4cZHocmXVoL8gum9hh'; 
+  //Create variables for input fields. City, Start/End dates 
+var cityInput = document.querySelector("#city")
+var startDateInput = document.querySelector("#start-date")
+var endDateInput = document.querySelector("#end-date")
+var searchForm = document.querySelector('form')
+
+//Create form variable 
+var eventOneEl= document.querySelector('#event-1')
+var formSubmitHandler = function (event) { 
+  var city = cityInput.value.trim();
+  var startDate = startDateInput.value.trim();
+  var endDate = endDateInput.value.trim();
+  console.log(city)
+
+  fetch(BASE_URl)
+  .then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+      displayEvents(data, event);
+      })
+    } else {
+      alert('')
+    }
+  })}
+formSubmitHandler()
+
+
+function initialEventLoad () {
+  // event.preventDefault();
+
+var initialUrl = BASE_URl
+  fetch(initialUrl)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          // console.log()
+          eventOneEl.setattribute("src", data._embedded.events.images.childnodes[0])
+
+      })
+}
+
+initialEventLoad();
   
-//   function displayResults(json) {
-//     while (section.firstChild) {
-//         section.removeChild(section.firstChild);
-//     }
-//   }
-//     const events = json.response.docs;
-  
-//     if(events.length === 20) {
-//       nav.style.display = 'block';
-//     } else {
-//       nav.style.display = 'none';
-//     }
+
+//Create form variable 
+var formSubmitHandler = function (event) {
+  event.preventDefault(); 
+  var city = cityInput.value.trim();
+  var startDate = startDateInput.value.trim();
+  var endDate = endDateInput.value.trim();
+  console.log(city)
+
+  fetch(apiUrl)
+  .then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+      displayEvents(data, event);
+      })
+    } else {
+      alert('')
+    }
+  })}
+formSubmitHandler()
+
+//Create event listner for form (line 103)
+searchForm.addEventListener('submit', formSubmitHandler);
 
 
-// //the forms for the search fields save to local storage
-// let stateSearch = "IL";
-
-// function fetchObjects() {
-//     const url = BASE_URL+KEY+"&stateCode=" + stateSearch
-   
-    
-//     fetch(url)
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (ticketmasterData) {
-//             console.log(ticketmasterData._embedded)
-            
-//         })
-
-//         .catch(function (error) {
-//             console.error(error);
-//         });
-// }
-
-// fetchObjects();
-// // //use the values in the form fields to apply filters to the api data 
 
 
-// ---
-// var state = document.querySelector('#state')
-// var event = document.querySelector('#eventsbox')
 
-// function tixData(event){
-//   event.preventDefault();
-//   console.log('Is this even working?')
-//   // var stShorthand = state.value
-//   var url = BASE_URL + KEY
-//   console.log(url)
-//     fetch(url)
-//       .then(function(response){
-//         return response.json();
-//       })
-//     .then(function(_embedded){
-//       console.log(url)
-//       event.innerHTML = data._embedded.events[0].name
+  if (city) {
+    getEvents(city);}
 
-//     })
-// }
+fetchObjects();
+//use the values in the form fields to apply filters to the api data 
 
 
-// getevents();
 
-// function getevents() {
-//   fetch(BASE_URL + KEY)
-//     .then(response => {
-//       var response = response.json();
-//       console.log(response);
-//       return response;
-//     })
-//     .then(data => {
-//       var eventbox = document.querySelector('div');
-//       eventbox.innerHTML = data._embedded.events[0].name;
-//       document.querySelector('#eventsbox').appendChild(eventbox);
 
-//       var typeevent = document.createElement('div');
-//       typeevent.innerHTML = data._embedded.events[0].classifications[0].segment.name;
-//       document.querySelector('#eventsbox').append(typeevent);
 
-//       var price = document.createElement('div');
-//       price.innerHTML = data._embedded.events[0].priceRanges[0].min;
-//       document.querySelector('#min').append(price);
+//insert the images, locations, datetimes and titles into the cards for events
 
-//       var price = document.createElement('div');
-//       price.innerHTML = data._embedded.events[0].priceRanges[0].max;
-//       document.querySelector('#max').append(price);
-
-//       var picpic = document.createElement('img');
-//       picpic.innerHTML = data._embedded.events[0].images[0].url;
-//       document.querySelector('#max').append(picpic);
-//     });
-// }
