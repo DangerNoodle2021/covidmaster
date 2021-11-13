@@ -99,34 +99,34 @@ const KEY = 'wYk8muWgRYtJ2K4cZHocmXVoL8gum9hh';
 // }
 
 
-getevents();
+// getevents();
 
-function getevents() {
-  fetch(BASE_URL + KEY)
-    .then(response => {
-      var response = response.json();
-      console.log(response);
-      return response;
-    })
-    .then(data => {
-      var eventbox = document.querySelector('div');
-      eventbox.innerHTML = data._embedded.events[0].name;
-      document.querySelector('#eventsbox').appendChild(eventbox);
+// function getevents() {
+//   fetch(BASE_URL + KEY)
+//     .then(response => {
+//       var response = response.json();
+//       console.log(response);
+//       return response;
+//     })
+//     .then(data => {
+//       var eventbox = document.querySelector('div');
+//       eventbox.innerHTML = data._embedded.events[0].name;
+//       document.querySelector('#eventsbox').appendChild(eventbox);
 
-      var typeevent = document.createElement('div');
-      typeevent.innerHTML = data._embedded.events[0].classifications[0].segment.name;
-      document.querySelector('#eventsbox').append(typeevent);
+//       var typeevent = document.createElement('div');
+//       typeevent.innerHTML = data._embedded.events[0].classifications[0].segment.name;
+//       document.querySelector('#eventsbox').append(typeevent);
 
-      var price = document.createElement('div');
-      price.innerHTML = data._embedded.events[0].priceRanges[0].min;
-      document.querySelector('#min').append(price);
+//       var price = document.createElement('div');
+//       price.innerHTML = data._embedded.events[0].priceRanges[0].min;
+//       document.querySelector('#min').append(price);
 
-      var price = document.createElement('div');
-      price.innerHTML = data._embedded.events[0].priceRanges[0].max;
-      document.querySelector('#max').append(price);
+//       var price = document.createElement('div');
+//       price.innerHTML = data._embedded.events[0].priceRanges[0].max;
+//       document.querySelector('#max').append(price);
 
-      var picpic = document.createElement('img');
-      picpic.innerHTML = data._embedded.events[0].images[0].url;
-      document.querySelector('#max').append(picpic);
-    });
-}
+//       var picpic = document.createElement('img');
+//       picpic.innerHTML = data._embedded.events[0].images[0].url;
+//       document.querySelector('#max').append(picpic);
+//     });
+// }
