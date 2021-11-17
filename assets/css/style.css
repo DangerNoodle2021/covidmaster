@@ -64,11 +64,12 @@ aside {
     border: 2px black solid;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    /* justify-content: center; */
 }
 
 p {
-   /* border: 2px blue solid;*/
+    /* border: 2px blue solid; */
     margin: 10px;
     font-size: x-large
 }
@@ -184,9 +185,35 @@ parents are the same name plus -container (.endDate-container,.startDate-contain
 
 
 #state-photo, #trending-graph {
-    height: 200px;
+    /* height: 200px; */
+    width: 95%;
     margin: 0px 10px;
 }
 
 /* #trending-graph {
 } */
+
+
+/* 
+.events{
+    width: 400px;
+    display: flex;
+}
+
+img {display: flex;} */
+.events {
+    border: 2px black solid;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+.event-photo {
+    width: 450px;
+    /* height: 225px; */
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+}

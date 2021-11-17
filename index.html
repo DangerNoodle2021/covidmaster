@@ -11,7 +11,7 @@
 <body>
     <!-- header w site title -->
     <header>
-      <h1>CoVidmaster</h1>
+      <h1>Covidmaster</h1>
       <button id="view-faves-icon" ><i class="far fa-heart"></i></button>
     </header>
     <!-- search navbar to bring back data -->
@@ -54,28 +54,11 @@
 
     <main>
     <!--section 3/4 the main -->
-           
-      <!--all ticketmaster data
-        --contains images, titles, locations, and dates/times of events-->
-       <section>
-        <div id="event-1">
-          <p>event1</p>
-        </div>
-        <div id="event-2">
-          <p>event2</p>
-        </div>
-        <div id="event-3">
-          <p>event3</p>
-        </div>
-        <div id="event-4">
-          <p>event4</p>
-        </div>
-        <div id="event-5">
-          <p>event5</p>
-        </div>
-    </section>
-      
-      
+      <section id="ticketmaster">
+        <!--all ticketmaster data
+          --contains images, titles, locations, and dates/times of events-->
+
+      </section>
       <aside>
 
 
@@ -86,7 +69,7 @@
         <!--Header needs to be replaced per search fo the state or zip code. if state then change to state if zip code cahnge to county-->
         <div id = 'currentData'></div>
           <h3 class='covid-title'>U.S.A</h3>
-          <img src="" alt="usa map" id='state-photo'> <!--would it be possible to insert a picture of the state?-->
+          <img id='state-photo' src=""/> <!--would it be possible to insert a picture of the state?-->
           <p>Risk Level: <span id="risk-level"></span></p>
           <p><span class='covid-title'>U.S.A</span> Population Vaccinated: <span id="percent-vaxxed"></span>%</p>
           <p>New Cases (<span id='current-date'>Current Date</span>): <span id='new-cases'>#</span></p>
@@ -97,11 +80,16 @@
     </main>
 
     <footer>Made by us</footer>
-  <!--  <script src="./assets/js/script.js"></script>-->
+    <!-- <script src="./assets/js/script.js"></script> -->
     <script src="./assets/js/covid-related.js"></script>
+    <script src="./assets/js/initial-load-ticketmaster.js"></script>
+    <script src="./assets/js/search-load-ticketmaster.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 
     </script>
-
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+  ></script>
   </body>
 </html>
