@@ -8,7 +8,7 @@ var ticketmasterEl = document.querySelector('#ticketmaster')
 
 function initialEventsLoad () {
     var initialURL = baseURL + apiKey
-    console.log(initialURL)
+    // console.log(initialURL)
 
     fetch(initialURL)
         .then(function (response){
@@ -36,7 +36,7 @@ function initialEventsLoad () {
                 //need to figure out a way to select only the same sizes of the image --> most likely to do with the url and change the ending
                 var eventImageEl = document.createElement("img")
                 eventImageEl.setAttribute("class", "event-photo")
-                eventImageEl.setAttribute("src", eventData._embedded.events[i].images[6].url.substr(0,77) + "_TABLET_LANDSCAPE_LARGE_16_9.jpg") 
+                eventImageEl.setAttribute("src", eventData._embedded.events[i].images[0].url) 
                 eventEl.appendChild(eventImageEl)
                 ticketmasterEl.appendChild(eventEl)
 
@@ -56,7 +56,7 @@ function initialEventsLoad () {
                 //dates
                 var eventDateEl = document.createElement("h2")
                 var date = eventData._embedded.events[i].dates.start.localDate + " " + eventData._embedded.events[i].dates.start.localTime
-                console.log(date)
+                // console.log(date)
                 var eventDate = moment(date).format("MMMM Do, YYYY, h:mm:ss a")
                 eventDateEl.innerHTML = eventDate
                 // console.log(eventDate)

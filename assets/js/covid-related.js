@@ -11,10 +11,10 @@ var posTestRate = document.querySelector('#test-rate')
 var stateTitleEl = document.querySelector('.covid-title')
 var percentVax = document.querySelector('#percent-vaxxed')
 var stateIconEl = document.querySelector('#state-photo')
-console.log(stateIconEl);
+// console.log(stateIconEl);
 var formEl = document.querySelector('form');
 var state = document.querySelector('#state')
-console.log(formEl)
+// console.log(formEl)
 var covidAPIKey = '7e0f83a022e24a68ae76e69913b1283c'
 
 function initialData () {
@@ -22,8 +22,8 @@ function initialData () {
     var initialURL = 'https://api.covidactnow.org/v2/country/US.json?apiKey=' + covidAPIKey
 
     var iconSourceEl = './assets/images/covidimages/USA.jpg'
-    console.log(iconSourceEl)
-    console.log(initialURL)
+    // console.log(iconSourceEl)
+    // console.log(initialURL)
     fetch(initialURL)
         .then(function (response) {
             return response.json();
@@ -42,38 +42,6 @@ function initialData () {
 }
 
 initialData();
-
-// assets/images/covidimages/USA.jpg
-function searchCovid (event){
-    event.preventDefault();
-    console.log('hello!!!!!!!!!!!!!!!!!')
-    var stateShorthand= state.value
-
-    var requestURL = 'https://api.covidactnow.org/v2/state/' + stateShorthand + '.timeseries.json?apiKey=' + covidAPIKey
-    var iconSourceEl = './assets/images/covidimages/' + stateShorthand + '.jpg'
-    console.log(requestURL)
-    fetch(requestURL)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(requestURL)
-            //change title of covid state to the state in the data.url
-            riskLevelEl.innerHTML = data.riskLevels.overall
-            currentDateEl.innerHTML= data.lastUpdatedDate //CONVERT TO Month, day year
-            newCasesEl.innerHTML = data.actuals.newCases
-            // posTestRate.innerHTML = data.actuals.positiveTests
-            percentVax.innerHTML = (data.metrics.vaccinationsCompletedRatio) * 100
-            //for the increase decrease, calculate the slope of the past 30 days of infection rate and if its positive then increase and if negative, decrease 
-            // console.log(stateShorthand) 
-            stateTitleEl.innerHTML = stateShorthand
-            stateIconEl.setAttribute("src", iconSourceEl)
-            console.log(stateShorthand) 
-        })
-};
-
-formEl.addEventListener('submit', searchCovid);
-
 
 // function to loop images depending on which state is searched, if no state searched pull up whole map
 
