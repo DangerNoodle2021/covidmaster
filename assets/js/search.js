@@ -41,7 +41,7 @@ function searchLoad(event){
 
     var cityInput = cityInputEl.value.replace(/\s/g,"+")
     var cityVal =  cityInput.trim();
-    var cityFilter = "&locale=*&city='" + cityVal
+    var cityFilter = "&city=" + cityVal
 
     var zipVal = zipInputEl.value
     var zipFilter = "&postalCode=" + zipVal
@@ -87,9 +87,12 @@ function searchEvents(startDateFilter, endDateFilter, stateFilter, cityFilter, z
     //     }
     // }
     // console.log(urlFilterList)
+    if (urlFilterList[3] === '') {
+        urlFilterList = [startDateFilter, endDateFilter, stateFilter, zipFilter]
+    }
     var tmRequestURL = baseURL + urlFilterList.join("") + apiKey
 
-    console.log(tmRequestURL)
+    // console.log(tmRequestURL)
     var eventsList = document.querySelectorAll('.events')
     var imagesList = document.querySelectorAll('.event-photo')
     var detailsList = document.querySelectorAll('.event-details') 
@@ -102,6 +105,7 @@ function searchEvents(startDateFilter, endDateFilter, stateFilter, cityFilter, z
             console.log(imagesList)
             console.log(eventsList)
             console.log(eventData)
+            console.log(tmRequestURL)
             for (var i=0; i < eventsList.length; i++) {
                 imagesList[i].setAttribute("src", eventData._embedded.events[i].images[0].url) 
 
